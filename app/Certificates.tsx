@@ -48,7 +48,7 @@ const Certificates = () => {
           Certifications
         </motion.h2>
         {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
-        <div className="grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(380px,400px))] justify-center">
+        <div className="grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(360px,430px))] justify-center">
           {certificates.map((cert, index) => (
             <motion.div
               key={index}
@@ -59,7 +59,7 @@ const Certificates = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="bg-[#0f2a44]/30 border border-[#0ea5e9]/20 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-[0_0_20px_rgba(14,165,233,0.2)] hover:bg-[#0f2a44]/50 hover:border-[#0ea5e9]/50 transition-all duration-300 overflow-hidden group"
             >
-              <div className="h-56 overflow-hidden relative bg-[#0b1320]">
+              <div className="h-78 overflow-hidden relative bg-[#0b1320]">
                 <img 
                   src={cert.image} 
                   alt={cert.name} 
