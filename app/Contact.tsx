@@ -165,7 +165,7 @@ const Contact = () => {
   </svg>
 </SocialIcon>
 
-              <SocialIcon href="https://mail.google.com/mail/?view=cm&fs=1&to=bilalraza2646@gmail.com" target="_blank" rel="noopener noreferrer">
+              <SocialIcon href="https://mail.google.com/mail/?view=cm&fs=1&to=bilalraza2646@gmail.com" >
   {/* Gmail Icon */}
   <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
     <path d="M2 4h20v16H2V4zm10 7L2 6v12h20V6l-10 5z"/>
