@@ -28,17 +28,20 @@ export default function Home() {
     const images: HTMLImageElement[] = [];
     let loadedCount = 0;
 
+    const handleLoad = () => {
+      loadedCount++;
+      if (loadedCount === frameCount) {
+        imagesRef.current = images;
+        setImagesLoaded(true);
+      }
+    };
+
     for (let i = 0; i < frameCount; i++) {
       const img = new Image();
       const frameStr = i.toString().padStart(2, '0');
       img.src = `/sequence/frame_${frameStr}_delay-0.066s.png`;
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount === frameCount) {
-          imagesRef.current = images;
-          setImagesLoaded(true);
-        }
-      };
+      img.onload = handleLoad;
+      img.onerror = handleLoad; // Prevent hanging on network error
       images.push(img);
     }
   }, []);
