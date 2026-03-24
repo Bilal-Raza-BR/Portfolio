@@ -15,6 +15,7 @@ const Skills = dynamic(() => import("./Skills"));
 const Education = dynamic(() => import("./Education"));
 const Certificates = dynamic(() => import("./Certificates"));
 const Contact = dynamic(() => import("./Contact"));
+const Footer = dynamic(() => import("./Footer"));
 
 const frameCount = 75;
 
@@ -66,6 +67,7 @@ export default function Home() {
         <Certificates />
         <Contact />
       </div>
+      <Footer />
     </main>
   );
 }

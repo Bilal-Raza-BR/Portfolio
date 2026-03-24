@@ -11,13 +11,13 @@ const educationData = [
   {
     degree: "Intermediate in Commerce",
     institution: "Science and Commerce College, Karachi",
-    period: "2017",
+    period: "Completed",
     description: "Successfully completed Intermediate education."
   },
   {
     degree: "Matriculation in Science",
     institution: "Government High School, Karachi",
-    period: "2019",
+    period: "Completed",
     description: "Successfully completed Matriculation."
   }
 ];
@@ -34,7 +34,7 @@ const Education = () => {
       transition={{ duration: 0.6 }}
       className="text-4xl md:text-5xl font-bold text-white mb-20 text-center"
     >
-      Experience & Education
+     Education
     </motion.h2>
         <div className="relative">
           {/* The vertical line */}
