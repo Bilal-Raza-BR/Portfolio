@@ -4,9 +4,9 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 
 const projects = [
-  { id: 1, title: "E-Commerce Website", category: "MERN Stack (JWT, NodeMailer)", image: "/projects/project1.png" },
-  { id: 2, title: "Event Booking System", category: "MERN Stack (Admin Panel)", image: "/projects/project2.png" },
-  { id: 3, title: "Blog Application", category: "React.js & Firebase", image: "/projects/project3.png" },
+  { id: 1, title: "E-Commerce Website", category: "MERN Stack (JWT, NodeMailer)", image: "/projects/project1.jpg" },
+  { id: 2, title: "Event Booking System", category: "MERN Stack (Admin Panel)", image: "/projects/project2.jpg" },
+  { id: 3, title: "Blog Application", category: "React.js & Firebase", image: "/projects/project3.jpg" },
 ];
 
 const useIsMobile = (breakpoint = 768) => {
