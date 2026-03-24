@@ -15,6 +15,12 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Muhammad Bilal Raza | MERN Stack Portfolio",
   description: "Portfolio of Muhammad Bilal Raza, a MERN Stack Developer.",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
 };
 
 export default function RootLayout({

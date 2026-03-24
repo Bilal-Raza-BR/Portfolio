@@ -1,13 +1,26 @@
 'use client';
 
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 const projects = [
   { id: 1, title: "E-Commerce Website", category: "MERN Stack (JWT, NodeMailer)", image: "/projects/project1.png" },
   { id: 2, title: "Event Booking System", category: "MERN Stack (Admin Panel)", image: "/projects/project2.png" },
   { id: 3, title: "Blog Application", category: "React.js & Firebase", image: "/projects/project3.png" },
 ];
+
+const useIsMobile = (breakpoint = 768) => {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    // Ensure this runs only on the client
+    const mediaQuery = window.matchMedia(`(max-width: ${breakpoint}px)`);
+    const handleResize = () => setIsMobile(mediaQuery.matches);
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [breakpoint]);
+  return isMobile;
+};
 
 const Projects = () => {
   return (
@@ -35,6 +48,7 @@ const Projects = () => {
 
 const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -47,7 +61,7 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
   const rotateY = useTransform(xSpring, [-0.5, 0.5], ['-10deg', '10deg']);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (!ref.current) return;
+    if (isMobile || !ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const width = rect.width;
     const height = rect.height;
@@ -60,6 +74,7 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
   };
 
   const handleMouseLeave = () => {
+    if (isMobile) return;
     x.set(0);
     y.set(0);
   };
@@ -69,7 +84,11 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ rotateX, rotateY, transformStyle: 'preserve-3d' }}
+      style={{
+        rotateX: isMobile ? 0 : rotateX,
+        rotateY: isMobile ? 0 : rotateY,
+        transformStyle: 'preserve-3d'
+      }}
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.2 }}

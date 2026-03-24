@@ -48,7 +48,7 @@ const Certificates = () => {
           Certifications
         </motion.h2>
         {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"> */}
-        <div className="grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(360px,430px))] justify-center">
+        <div className="grid gap-8 [grid-template-columns:repeat(auto-fit,minmax(300px,1fr))] justify-center">
           {certificates.map((cert, index) => (
             <motion.div
               key={index}

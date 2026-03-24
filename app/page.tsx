@@ -1,14 +1,16 @@
+import dynamic from "next/dynamic";
 import ScrollyCanvas from "./ScrollyCanvas";
 import Overlay from "./Overlay";
-import Projects from "./Projects";
-import About from "./About";
-import Skills from "./Skills";
-import Education from "./Education";
-import Certificates from "./Certificates";
 // import Testimonials from "./Testimonials";
-import Contact from "./Contact";
 import Scene from "./Scene";
 import Navbar from "./Navbar";
+
+const About = dynamic(() => import("./About"));
+const Projects = dynamic(() => import("./Projects"));
+const Skills = dynamic(() => import("./Skills"));
+const Education = dynamic(() => import("./Education"));
+const Certificates = dynamic(() => import("./Certificates"));
+const Contact = dynamic(() => import("./Contact"));
 
 export default function Home() {
   return (
