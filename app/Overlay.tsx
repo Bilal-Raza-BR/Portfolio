@@ -1,14 +1,12 @@
  'use client';
 
-import { useScroll, useTransform, motion } from 'framer-motion';
-import { useRef } from 'react';
+import { useTransform, motion, MotionValue } from 'framer-motion';
 
-const Overlay = () => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  });
+interface OverlayProps {
+  scrollYProgress: MotionValue<number>;
+}
+
+const Overlay = ({ scrollYProgress }: OverlayProps) => {
 
   // Animations define kar rahe hain (Opacity aur Y-position)
   const opacity1 = useTransform(scrollYProgress, [0, 0.2, 0.3], [1, 1, 0]);
@@ -21,7 +19,7 @@ const Overlay = () => {
   const y3 = useTransform(scrollYProgress, [0.5, 0.9], [50, -50]);
 
   return (
-    <div ref={containerRef} className="absolute top-0 left-0 w-full h-[500vh] z-30 pointer-events-none">
+    <div className="absolute top-0 left-0 w-full h-full z-30 pointer-events-none">
       {/* Section 1: Intro */}
       <div className="sticky top-0 h-screen flex items-center justify-center">
         <motion.div style={{ opacity: opacity1, y: y1 }} className="text-center px-4">

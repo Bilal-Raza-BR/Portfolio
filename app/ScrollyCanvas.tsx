@@ -1,47 +1,18 @@
 'use client';
 
-import { useRef, useEffect, useState } from 'react';
-import { useScroll, useTransform } from 'framer-motion';
+import { useRef, useEffect } from 'react';
+import { MotionValue } from 'framer-motion';
 
-const ScrollyCanvas = () => {
+interface ScrollyCanvasProps {
+  images: HTMLImageElement[];
+  frameIndex: MotionValue<number>;
+}
+
+const ScrollyCanvas = ({ images, frameIndex }: ScrollyCanvasProps) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const [imagesLoaded, setImagesLoaded] = useState(false);
-  
-  const imagesRef = useRef<HTMLImageElement[]>([]);
-  const frameCount = 75; // Total frames: 0 se 74 tak = 75 frames
 
-  // Step 1: Sirf ek baar saari images ko preload karein
   useEffect(() => {
-    const images: HTMLImageElement[] = [];
-    let loadedCount = 0;
-
-    for (let i = 0; i < frameCount; i++) {
-      const img = new Image();
-      const frameStr = i.toString().padStart(2, '0');
-      img.src = `/sequence/frame_${frameStr}_delay-0.066s.png`;
-      img.onload = () => {
-        loadedCount++;
-        // Jab aakhri image bhi load ho jaye, tab state update karein
-        if (loadedCount === frameCount) {
-          imagesRef.current = images;
-          setImagesLoaded(true);
-        }
-      };
-      images.push(img);
-    }
-  }, []); // Empty array ka matlab hai ke yeh effect sirf ek baar chalega
-
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ['start start', 'end end'],
-  });
-
-  const frameIndex = useTransform(scrollYProgress, [0, 1], [0, frameCount - 1]);
-
-  // Step 2: Jab images load ho jayein, tab canvas par drawing shuru karein
-  useEffect(() => {
-    if (!imagesLoaded || !canvasRef.current) return;
+    if (!images.length || !canvasRef.current) return;
 
     const canvas = canvasRef.current;
     const context = canvas.getContext('2d');
@@ -51,7 +22,7 @@ const ScrollyCanvas = () => {
 
     const render = () => {
       const currentFrameIndex = Math.round(frameIndex.get());
-      const img = imagesRef.current[currentFrameIndex];
+      const img = images[currentFrameIndex];
       
       if (img) {
         const hRatio = canvas.width / img.width;
@@ -70,6 +41,10 @@ const ScrollyCanvas = () => {
     };
 
     const handleResize = () => {
+      // Mobile fix: Agar width same hai (sirf address bar aane/jane se height badli hai), 
+      // to resize mat karo. Is se zoom in/out effect ruk jayega.
+      if (window.innerWidth === canvas.width) return;
+
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       if (!renderRequestId) {
@@ -95,14 +70,11 @@ const ScrollyCanvas = () => {
         cancelAnimationFrame(renderRequestId);
       }
     };
-  }, [imagesLoaded, frameIndex]); // Yeh effect tab chalega jab imagesLoaded true hoga
+  }, [images, frameIndex]);
 
   return (
-    // z-0 add kiya hai taake yeh Overlay ke neeche rahe
-    <div ref={containerRef} className="h-[500vh] w-full relative z-0">
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <canvas ref={canvasRef} className="block w-full h-full" />
-      </div>
+    <div className="sticky top-0 h-screen w-full overflow-hidden z-0">
+      <canvas ref={canvasRef} className="block w-full h-full" />
     </div>
   );
 };
