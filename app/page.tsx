@@ -61,10 +61,10 @@ export default function Home() {
       </div>
       <div className="relative overflow-x-hidden">
         <About />
-        <Projects />
         <Skills />
         <Education />
         <Certificates />
+        <Projects />
         <Contact />
       </div>
       <Footer />
