@@ -12,11 +12,11 @@ const About = () => {
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.8, ease: "easeInOut" }}
         >
-          <h2 className="text-sm font-bold tracking-widest text-[#0ea5e9] uppercase mb-3">About Me</h2>
+          <h2 className="text-sm font-bold tracking-widest text-[#10b981] uppercase mb-3">About Me</h2>
           <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Muhammad Bilal Raza
           </h1>
-          <h3 className="text-2xl md:text-3xl font-medium text-[#0ea5e9] mb-6">MERN Stack Developer</h3>
+          <h3 className="text-2xl md:text-3xl font-medium text-[#10b981] mb-6">MERN Stack Developer</h3>
           
           <p className="text-gray-400 leading-relaxed text-lg mb-8">
             Dedicated and enthusiastic web developer with hands-on experience in building real-world projects using the MERN stack. Currently pursuing intermediate education while actively applying and expanding technical skills through self-driven development work. Known for a strong work ethic, quick learning, and the ability to adapt to new technologies. Committed to delivering high-quality solutions and collaborating effectively within team environments.
@@ -32,18 +32,18 @@ const About = () => {
           <div className="flex flex-col sm:flex-row gap-4">
             <Link href="#contact" passHref>
               <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0px 0px 25px rgba(255, 106, 0, 0.5)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0px 0px 25px rgba(16, 185, 129, 0.5)" }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-[#ff6a00] to-[#ff8c32] text-white font-bold py-4 px-10 rounded-full transition-all shadow-[0_0_20px_rgba(255,106,0,0.2)]"
+                className="bg-gradient-to-r from-[#10b981] to-[#34d399] text-white font-bold py-4 px-10 rounded-full transition-all shadow-[0_0_20px_rgba(16,185,129,0.2)]"
               >
                 Hire Me
               </motion.button>
             </Link>
             <a href="/Bilal-Raza.pdf" download="Bilal-Raza.pdf" className="block">
               <motion.button
-                whileHover={{ scale: 1.05, backgroundColor: "rgba(14, 165, 233, 0.1)" }}
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(16, 185, 129, 0.1)" }}
                 whileTap={{ scale: 0.95 }}
-                className="w-full bg-transparent border border-[#0ea5e9]/30 text-[#0ea5e9] font-bold py-4 px-10 rounded-full transition-all backdrop-blur-sm"
+                className="w-full bg-transparent border border-[#10b981]/30 text-[#10b981] font-bold py-4 px-10 rounded-full transition-all backdrop-blur-sm"
               >
                 Download Resume
               </motion.button>

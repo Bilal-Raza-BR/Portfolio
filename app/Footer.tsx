@@ -3,7 +3,7 @@
 import Link from 'next/link';
 
 const SocialIcon = ({ href, children }: { href: string, children: React.ReactNode }) => (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#ff6a00] transition-colors duration-300">
+    <a href={href} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-[#10b981] transition-colors duration-300">
         {children}
     </a>
 );

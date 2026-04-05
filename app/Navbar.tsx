@@ -38,7 +38,7 @@ const Navbar = () => {
       >
         <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
           <Link href="/" className="text-2xl font-bold text-white tracking-tighter">
-          BilalRaza<span className="text-[#ff6a00]">.</span>
+          BilalRaza<span className="text-[#10b981]">.</span>
           </Link>
 
           {/* Desktop Menu */}
@@ -47,7 +47,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-gray-300 hover:text-[#ff6a00] transition-colors"
+                className="text-sm font-medium text-gray-300 hover:text-[#10b981] transition-colors"
               >
                 {link.name}
               </Link>
@@ -92,7 +92,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-3xl font-bold text-white hover:text-[#ff6a00] transition-colors"
+                className="text-3xl font-bold text-white hover:text-[#10b981] transition-colors"
               >
                 {link.name}
               </Link>

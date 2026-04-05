@@ -103,18 +103,18 @@ const Skills = () => {
      + flex-[1_1_260px] 
        + max-w-[300px]
         p-6 
-        bg-[#0f2a44]/30 border border-[#ff6a00]/20 
+        bg-zinc-900/30 border border-[#10b981]/20 
         rounded-2xl backdrop-blur-sm text-center 
-        hover:bg-[#0f2a44]/50 transition-all
+        hover:bg-zinc-900/50 transition-all
       "
     >
       <h3 className="text-lg font-bold text-white mb-3">
         {skill.name}
       </h3>
 
-      <div className="w-full bg-[#0f2a44] rounded-full h-1.5 overflow-hidden">
+      <div className="w-full bg-zinc-800 rounded-full h-1.5 overflow-hidden">
         <motion.div
-          className="bg-gradient-to-r from-[#ff6a00] to-[#f2a065] h-full rounded-full"
+          className="bg-gradient-to-r from-[#10b981] to-[#6ee7b7] h-full rounded-full"
           initial={{ width: 0 }}
           whileInView={{ width: skill.level }}
           transition={{ duration: 1 }}

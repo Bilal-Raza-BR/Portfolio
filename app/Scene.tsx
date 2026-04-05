@@ -46,10 +46,10 @@ const Scene = () => {
         <pointLight position={[10, 10, 10]} />
         <FloatingShape />
         <Icosahedron args={[0.5, 1]} position={[5, 4, -12]}>
-           <meshStandardMaterial color="#0ea5e9" roughness={0.1} />
+           <meshStandardMaterial color="#ffffff" roughness={0.1} />
         </Icosahedron>
          <Icosahedron args={[0.8, 1]} position={[6, -5, -15]}>
-           <meshStandardMaterial color="#ff6a00" roughness={0.3} />
+           <meshStandardMaterial color="#10b981" roughness={0.3} />
         </Icosahedron>
       </Canvas>
     </div>

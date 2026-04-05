@@ -1,12 +1,57 @@
 'use client';
 
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
 import { useRef, useState, useEffect } from 'react';
 
 const projects = [
-  { id: 1, title: "E-Commerce Website", category: "MERN Stack (JWT, NodeMailer)", image: "/projects/project1.jpg" },
-  { id: 2, title: "Event Booking System", category: "MERN Stack (Admin Panel)", image: "/projects/project2.jpg" },
-  { id: 3, title: "Blog Application", category: "React.js & Firebase", image: "/projects/project3.jpg" },
+  {
+    id: 1,
+    title: "SaaS HRMS Portal",
+    category: "Full-Stack SaaS Application",
+    tech: ["MERN Stack", "JWT", "Cloudinary", "Nodemailer", "Multer"],
+    features: [
+      "Multi-company Isolated Environments",
+      "Role-based Access (Owner, Admin, Employee)",
+      "Attendance & Leave Management System",
+      "Job Module with Resume Upload",
+      "Real-time Notification System"
+    ],
+    image: "/projects/project1.png",
+    liveDemo: "https://hrms-frontend-rosy-omega.vercel.app/",
+    github: "https://github.com/Bilal-Raza-BR/HRMS-Frontend"
+  },
+  {
+    id: 2,
+    title: "Full-Stack E-Commerce",
+    category: "MERN Stack Development",
+    tech: ["React", "Node.js", "MongoDB", "Cloudinary", "Bcrypt.js"],
+    features: [
+      "Secure User & Admin Dashboards",
+      "Product CRUD with Image Upload",
+      "Order System with Unique Tracking",
+      "Persistent Cart & Secure Checkout",
+      "JWT Protected Private Routes"
+    ],
+    image: "/projects/project2.png",
+    liveDemo: "https://e-commerce-frontend-seven-lyart.vercel.app/",
+    github: "https://github.com/Bilal-Raza-BR/E-Commerce-frontend"
+  },
+  {
+    id: 3,
+    title: "Event Booking Platform",
+    category: "Booking & Workflow System",
+    tech: ["React", "Node.js", "Express.js", "MongoDB"],
+    features: [
+      "User Request Submission Workflow",
+      "Admin Approval/Rejection System",
+      "Real-time Appointment Tracking",
+      "Secure Admin Authentication",
+      "Personal Booking Status Check"
+    ],
+    image: "/projects/project3.png",
+    liveDemo: "https://event-booking-frontend-zeta.vercel.app/",
+    github: "https://github.com/Bilal-Raza-BR/Event-Booking-frontend"
+  },
 ];
 
 const useIsMobile = (breakpoint = 768) => {
@@ -49,6 +94,7 @@ const Projects = () => {
 const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
   const ref = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
+  const [isHovered, setIsHovered] = useState(false);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -61,6 +107,7 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
   const rotateY = useTransform(xSpring, [-0.5, 0.5], ['-10deg', '10deg']);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    setIsHovered(true);
     if (isMobile || !ref.current) return;
     const rect = ref.current.getBoundingClientRect();
     const width = rect.width;
@@ -74,6 +121,7 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
   };
 
   const handleMouseLeave = () => {
+    setIsHovered(false);
     if (isMobile) return;
     x.set(0);
     y.set(0);
@@ -93,19 +141,67 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: false, amount: 0.2 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
-      className="relative h-[450px] rounded-2xl bg-gradient-to-br from-[#0f2a44]/50 to-[#0b1320]/50 border border-[#ff6a00]/20 shadow-2xl shadow-black/40"
+      className="relative h-[450px] rounded-2xl bg-zinc-900/50 border border-[#10b981]/20 shadow-2xl shadow-black/40 group"
     >
-      <div style={{ transform: 'translateZ(50px)', transformStyle: 'preserve-3d' }} className="absolute inset-5 flex flex-col justify-between">
-        <img src={project.image} alt={project.title} className="rounded-lg h-1/2 w-full object-cover shadow-lg" />
-        <div>
-          <h3 className="text-xl md:text-2xl font-bold text-white mb-1">{project.title}</h3>
-          <p className="text-gray-400">{project.category}</p>
+      <div style={{ transform: 'translateZ(60px)', transformStyle: 'preserve-3d' }} className="absolute inset-5 flex flex-col justify-between pointer-events-auto">
+        <div className="relative h-1/2 w-full mb-4 overflow-hidden rounded-lg">
+          <img src={project.image} alt={project.title} className="w-full h-full object-cover shadow-lg transition-transform duration-500 group-hover:scale-110" />
+          
+          {/* Features Overlay */}
+          <AnimatePresence>
+            {isHovered && (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                className="absolute inset-0 bg-black/80 backdrop-blur-sm p-4 flex flex-col justify-center"
+              >
+                <h4 className="text-[#10b981] text-xs font-bold uppercase mb-2">Key Features</h4>
+                <ul className="space-y-1">
+                  {project.features.map((feature, idx) => (
+                    <li key={idx} className="text-white text-xs flex items-start gap-2">
+                      <span className="text-[#10b981]">▹</span> {feature}
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-        <div className="flex gap-3">
-          <button className="bg-[#ff6a00]/10 border border-[#ff6a00]/30 backdrop-blur-sm text-[#ff6a00] px-4 py-2 rounded-lg text-sm hover:bg-[#ff6a00]/20 transition-colors">Live Demo</button>
-          <button className="bg-[#0f2a44]/50 border border-[#0ea5e9]/30 backdrop-blur-sm text-[#0ea5e9] px-4 py-2 rounded-lg text-sm hover:bg-[#0f2a44] transition-colors">GitHub</button>
+
+        <div>
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{project.title}</h3>
+          <p className="text-sm text-[#10b981] font-medium mb-3 uppercase tracking-wider">{project.category}</p>
+          <div className="flex flex-wrap gap-2 mb-4">
+            {project.tech?.map((t, i) => (
+              <span key={i} className="text-[10px] px-2 py-1 rounded-md bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20 font-medium">
+                {t}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="flex gap-3 mt-auto relative z-50">
+          <a
+            href={project.liveDemo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-center bg-gradient-to-r from-[#10b981] to-[#34d399] text-white font-bold px-4 py-2.5 rounded-xl text-sm hover:scale-[1.02] active:scale-[0.98] transition-all shadow-lg shadow-[#10b981]/20"
+          >
+            Live Demo
+          </a>
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 text-center bg-white/5 border border-white/10 backdrop-blur-sm text-white px-4 py-2.5 rounded-xl text-sm hover:bg-white/10 hover:border-white/20 transition-all"
+          >
+            GitHub
+          </a>
         </div>
       </div>
+      
+      {/* Hover glow effect background */}
+      <div className="absolute inset-0 rounded-2xl bg-[#10b981]/5 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
     </motion.div>
   );
 };

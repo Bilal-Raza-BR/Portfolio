@@ -57,7 +57,7 @@ const Certificates = () => {
               whileHover={{ y: -10 }}
               viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-[#0f2a44]/30 border border-[#0ea5e9]/20 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-[0_0_20px_rgba(14,165,233,0.2)] hover:bg-[#0f2a44]/50 hover:border-[#0ea5e9]/50 transition-all duration-300 overflow-hidden group"
+              className="bg-zinc-900/30 border border-[#10b981]/20 rounded-2xl backdrop-blur-md shadow-lg hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] hover:bg-zinc-900/50 hover:border-[#10b981]/50 transition-all duration-300 overflow-hidden group"
             >
               <div className="h-78 overflow-hidden relative bg-[#0b1320]">
                 <img 

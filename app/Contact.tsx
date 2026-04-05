@@ -8,7 +8,7 @@ const SocialIcon = ({ children, href }: { children: React.ReactNode, href: strin
   <a href={href} target="_blank" rel="noopener noreferrer">
     <motion.div 
       whileHover={{ y: -4, scale: 1.1 }}
-      className="w-12 h-12 bg-[#0f2a44]/50 border border-[#0ea5e9]/20 rounded-full flex items-center justify-center text-white hover:bg-[#0ea5e9] hover:border-[#0ea5e9] transition-all duration-300 shadow-lg"
+      className="w-12 h-12 bg-zinc-900/50 border border-[#10b981]/20 rounded-full flex items-center justify-center text-white hover:bg-[#10b981] hover:text-black hover:border-[#10b981] transition-all duration-300 shadow-lg"
     >
       {children}
     </motion.div>
@@ -28,14 +28,14 @@ const FormInput = ({ name, type = 'text', placeholder, isTextArea = false }: { n
         name={name}
         placeholder={placeholder}
         rows={5}
-        className="w-full bg-[#0b1320] border border-[#1e293b] rounded-xl py-4 px-6 text-white placeholder-gray-500 focus:outline-none focus:border-[#0ea5e9] focus:ring-1 focus:ring-[#0ea5e9] transition-all duration-300 resize-none"
+        className="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl py-4 px-6 text-white placeholder-gray-500 focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] transition-all duration-300 resize-none"
       ></textarea>
     ) : (
       <input
         type={type}
         name={name}
         placeholder={placeholder}
-        className="w-full bg-[#0b1320] border border-[#1e293b] rounded-xl py-4 px-6 text-white placeholder-gray-500 focus:outline-none focus:border-[#0ea5e9] focus:ring-1 focus:ring-[#0ea5e9] transition-all duration-300"
+        className="w-full bg-zinc-900/50 border border-zinc-800 rounded-xl py-4 px-6 text-white placeholder-gray-500 focus:outline-none focus:border-[#10b981] focus:ring-1 focus:ring-[#10b981] transition-all duration-300"
       />
     )}
   </motion.div>
@@ -49,13 +49,13 @@ const ContactItem = ({ icon, title, value, href }: { icon: React.ReactNode, titl
     transition={{ duration: 0.5 }}
     className="flex items-start gap-5"
   >
-    <div className="w-12 h-12 shrink-0 bg-[#0ea5e9]/10 border border-[#0ea5e9]/20 rounded-xl flex items-center justify-center text-[#0ea5e9]">
+    <div className="w-12 h-12 shrink-0 bg-[#10b981]/10 border border-[#10b981]/20 rounded-xl flex items-center justify-center text-[#10b981]">
       {icon}
     </div>
     <div>
       <h4 className="text-gray-400 text-sm font-semibold uppercase tracking-wider mb-1">{title}</h4>
       {href ? (
-        <a href={href} className="text-lg md:text-xl font-bold text-white hover:text-[#0ea5e9] transition-colors">
+        <a href={href} className="text-lg md:text-xl font-bold text-white hover:text-[#10b981] transition-colors">
           {value}
         </a>
       ) : (
@@ -107,8 +107,8 @@ const Contact = () => {
       <Toaster position="bottom-center" reverseOrder={false} />
       {/* Background Gradients */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-[#0ea5e9]/5 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#ff6a00]/5 rounded-full blur-[120px]" />
+        <div className="absolute top-[20%] right-[-10%] w-[500px] h-[500px] bg-[#10b981]/5 rounded-full blur-[120px]" />
+        <div className="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-[#10b981]/5 rounded-full blur-[120px]" />
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
@@ -122,7 +122,7 @@ const Contact = () => {
               transition={{ duration: 0.6 }}
               className="mb-12"
             >
-              <h2 className="text-sm font-bold tracking-widest text-[#0ea5e9] uppercase mb-3">Contact</h2>
+              <h2 className="text-sm font-bold tracking-widest text-[#10b981] uppercase mb-3">Contact</h2>
               <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Let's Work Together</h1>
               <p className="text-gray-400 text-lg leading-relaxed max-w-lg">
                 Have a project in mind or just want to say hi? I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
@@ -180,7 +180,7 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.8 }}
-            className="bg-[#0f2a44]/20 border border-[#0ea5e9]/20 p-8 md:p-10 rounded-3xl backdrop-blur-md shadow-2xl relative"
+            className="bg-zinc-900/20 border border-[#10b981]/20 p-8 md:p-10 rounded-3xl backdrop-blur-md shadow-2xl relative"
           >
             <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -194,7 +194,7 @@ const Contact = () => {
                 type="submit"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-[#ff6a00] to-[#ff8c32] text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-[#ff6a00]/25 transition-all duration-300"
+                className="w-full bg-gradient-to-r from-[#10b981] to-[#34d399] text-white font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-[#10b981]/25 transition-all duration-300"
               >
                 Send Message
               </motion.button>

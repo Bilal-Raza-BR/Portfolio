@@ -38,7 +38,7 @@ const Education = () => {
     </motion.h2>
         <div className="relative">
           {/* The vertical line */}
-          <div className="absolute left-2 md:left-1/2 md:-translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-transparent via-[#ff6a00]/50 to-transparent" aria-hidden="true"></div>
+          <div className="absolute left-2 md:left-1/2 md:-translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-transparent via-[#10b981]/50 to-transparent" aria-hidden="true"></div>
           
           {educationData.map((item, index) => (
             <motion.div
@@ -58,9 +58,9 @@ const Education = () => {
                     viewport={{ once: false, amount: 0.2 }}
                     transition={{ duration: 0.8, ease: "easeInOut" }}
                     whileHover={{ y: -5 }}
-                    className="p-6 md:p-8 bg-[#0f2a44]/30 border border-[#0ea5e9]/20 rounded-2xl backdrop-blur-md shadow-lg hover:bg-[#0f2a44]/50 hover:border-[#0ea5e9]/50 transition-all duration-300"
+                    className="p-6 md:p-8 bg-zinc-900/30 border border-[#10b981]/20 rounded-2xl backdrop-blur-md shadow-lg hover:bg-zinc-900/50 hover:border-[#10b981]/50 transition-all duration-300"
                   >
-                    <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-[#0b1320] uppercase bg-[#0ea5e9] rounded-full">{item.period}</span>
+                    <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-black uppercase bg-[#10b981] rounded-full">{item.period}</span>
                     <h3 className="text-2xl font-bold text-white mb-2">{item.degree}</h3>
                     <p className="text-lg font-medium text-gray-300 mb-4">{item.institution}</p>
                     <p className="text-gray-400">{item.description}</p>
@@ -73,7 +73,7 @@ const Education = () => {
                 whileInView={{ scale: 1 }}
                 viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
-                className="absolute left-2 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-[#ff6a00] rounded-full z-10 shadow-[0_0_10px_rgba(255,106,0,0.8)]"
+                className="absolute left-2 md:left-1/2 -translate-x-1/2 w-4 h-4 bg-[#10b981] rounded-full z-10 shadow-[0_0_10px_rgba(16,185,129,0.8)]"
               ></motion.div>
             </motion.div>
           ))}
