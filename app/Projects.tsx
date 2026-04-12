@@ -49,7 +49,7 @@ const projects = [
       "Personal Booking Status Check"
     ],
     image: "/projects/project3.png",
-    liveDemo: "https://event-booking-frontend-zeta.vercel.app/",
+    liveDemo: "https://event-booking-frontend-sooty.vercel.app/",
     github: "https://github.com/Bilal-Raza-BR/Event-Booking-frontend"
   },
 ];
