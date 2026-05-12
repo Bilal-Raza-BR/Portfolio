@@ -52,6 +52,38 @@ const projects = [
     liveDemo: "https://event-booking-frontend-sooty.vercel.app/",
     github: "https://github.com/Bilal-Raza-BR/Event-Booking-frontend"
   },
+{
+  id: 4,
+  title: "GharFinder",
+  category: "Full Stack Real Estate Platform",
+  tech: [
+    "Next.js",
+    "React",
+    "Tailwind CSS",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Mongoose",
+    "JWT Authentication",
+    "Cloudinary",
+    "REST API"
+  ],
+  features: [
+    "User Authentication (Register / Login with JWT)",
+    "Create, Edit & Delete Property Listings (CRUD)",
+    "Advanced Property Search & Filtering System",
+    "Detailed Property Pages with Images & Specs",
+    // "Image Upload & Management using Cloudinary",
+    "Responsive UI (Mobile + Desktop Optimized)",
+    "Protected Routes & Secure API Integration",
+    // "Contact Owner via Call & WhatsApp",
+    // "Dynamic Routing with Next.js",
+    "Modern UI/UX with Tailwind & Reusable Components"
+  ],
+  image: "/projects/project4.png",
+  liveDemo: "https://ghar-finder-frontend.vercel.app",
+  github: "https://github.com/Bilal-Raza-BR/GharFinder-Frontend",
+},
 ];
 
 const useIsMobile = (breakpoint = 768) => {
