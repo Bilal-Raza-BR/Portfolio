@@ -103,7 +103,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative w-full bg-black py-24 md:py-32 px-6 md:px-12 z-20 overflow-hidden">
+    <section id="contact" className="relative w-full  py-24 md:py-32 px-6 md:px-12 z-20 overflow-hidden">
       <Toaster position="bottom-center" reverseOrder={false} />
       {/* Background Gradients */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">

@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 const About = () => {
   return (
-    <section id="about" className="relative w-full bg-black py-20 md:py-32 px-6 md:px-12 z-20">
+    <section id="about" className="relative w-full py-20 md:py-32 px-6 md:px-12 z-20">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <motion.div
           initial={{ opacity: 0, x: -50 }}

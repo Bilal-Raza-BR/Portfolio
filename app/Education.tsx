@@ -24,7 +24,7 @@ const educationData = [
 
 const Education = () => {
   return (
-    <section id="education" className="relative w-full bg-black py-20 md:py-32 px-6 md:px-12 z-20">
+    <section id="education" className="relative w-full  py-20 md:py-32 px-6 md:px-12 z-20">
   <div className="max-w-4xl mx-auto">
 
     <motion.h2

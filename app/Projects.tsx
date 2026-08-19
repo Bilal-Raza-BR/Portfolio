@@ -101,7 +101,7 @@ const useIsMobile = (breakpoint = 768) => {
 
 const Projects = () => {
   return (
-    <section id="projects" className="relative w-full bg-black py-32 px-6 md:px-12 z-20">
+    <section id="projects" className="relative w-full  py-32 px-6 md:px-12 z-20">
       <div className="max-w-7xl mx-auto">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}

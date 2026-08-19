@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import VideoScroll from "./VideoScroll";
 import Overlay from "./Overlay";
 import Scene from "./Scene";
+import Galaxy from "./Galaxy";
 import Navbar from "./Navbar";
 import Loader from "./Loader";
 import { useScroll } from "framer-motion";
@@ -36,6 +37,7 @@ export default function Home() {
         <Overlay scrollYProgress={scrollYProgress} />
       </div>
       <div className="relative overflow-x-hidden">
+        <Galaxy />
         <About />
         <Skills />
         <Education />
